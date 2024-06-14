@@ -7,7 +7,8 @@ This project automates the analysis of qPCR data, which is often used in researc
 ## Scientific Background
 
 Quantitative PCR (qPCR) is a laboratory technique used to measure the quantity of a specific RNA or DNA sequence in a sample. It is commonly used to quantify gene expression levels by measuring the cycle threshold (CT) values during PCR amplification.
-For more information about and scientific background you can look at this youtube video: [YouTube video](https://www.youtube.com/watch?v=y8tHiH0BzGY)
+For more information about and scientific background you can look at this youtube video: [Analyzing Quantitative PCR Data
+](https://www.youtube.com/watch?v=y8tHiH0BzGY)
 
 ### Key Concepts
 
