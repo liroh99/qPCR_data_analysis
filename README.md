@@ -37,33 +37,48 @@ To run the program, use the following command in the terminal:
 python qpcr_analysis.py --input <input_excel_file_path> --output <output_excel_file_name>
 
 
-### Step 3: Data processing
+### Step 3: Data Processing
+
 The program performs the following steps:
 
-Load Data: Reads the qPCR Excel file and focuses on the "Results" sheet.
-Extract Relevant Data: Extracts the sample name, target name, CT values, and CT SD values from the "Results" sheet and creates a DataFrame.
-Calculate Mean and Standard Deviation: Calculates the mean and standard deviation of CT values for duplicates/triplicates.
-Check Water Template: Verifies if the water template is clean (CT > 35). If not, it displays a warning.
-Check CT SD: Ensures that the CT SD is within the acceptable range (CT SD ≤ 0.5). If any sample exceeds this threshold, it displays a warning.
-Calculate ∆Cq: Calculates the difference between the CT values of the target gene and the reference gene for each sample.
-Calculate Expression (2^(-∆Cq)): Computes the expression value for each sample.
-Calculate Mean and Standard Deviation of Expression: Calculates the mean and standard deviation of the expression values for duplicates/triplicates.
-Calculate ∆∆Cq: Computes the ∆∆Cq expression for treated vs. control.
-Calculate ∆∆Cq Standard Deviation: Calculates the standard deviation for ∆∆Cq expression.
-Calculate % KD: Computes the knockdown percentage.
-Generate Output: Creates a table similar to the provided example and generates a graph.
+1. **Load Data**: Reads the qPCR Excel file and focuses on the "Results" sheet.
+2. **Extract Relevant Data**: Extracts the sample name, target name, CT values, and CT SD values from the "Results" sheet and creates a DataFrame.
+3. **Calculate Mean and Standard Deviation**: Calculates the mean and standard deviation of CT values for duplicates/triplicates.
+4. **Check Water Template**: Verifies if the water template is clean (CT > 35). If not, it displays a warning.
+5. **Check CT SD**: Ensures that the CT SD is within the acceptable range (CT SD ≤ 0.5). If any sample exceeds this threshold, it displays a warning.
+6. **Calculate ∆Cq**: Calculates the difference between the CT values of the target gene and the reference gene for each sample.
+7. **Calculate Expression (2^(-∆Cq))**: Computes the expression value for each sample.
+8. **Calculate Mean and Standard Deviation of Expression**: Calculates the mean and standard deviation of the expression values for duplicates/triplicates.
+9. **Calculate ∆∆Cq**: Computes the ∆∆Cq expression for treated vs. control.
+10. **Calculate ∆∆Cq Standard Deviation**: Calculates the standard deviation for ∆∆Cq expression.
+11. **Calculate % KD**: Computes the knockdown percentage.
+12. **Generate Output**: Creates a table similar to the provided example and generates a graph.
 
-###Output
-Table: An Excel file containing a table with the relevant information. 
-Graph: A graph where the NTC is set to 1, and the treated groups are represented by the ∆∆Cq expression values. This graph shows the differential expression of the gene of interest due to the treatment.
+### Output
 
-###Dependencies
+- **Table**: An Excel file containing a table with the following columns:
+  - Treatment
+  - Cq reference gene
+  - Cq target
+  - ∆Cq
+  - ∆Cq expression
+  - Mean ∆Cq expression
+  - ∆Cq expression stdev
+  - ∆∆Cq expression
+  - ∆∆Cq expression stdev
+  - % KD
+
+- **Graph**: A graph where the NTC is set to 1, and the treated groups are represented by the ∆∆Cq expression values. This graph shows the differential expression of the gene of interest due to the treatment.
+
+## Dependencies
+
 To install the necessary dependencies, run:
 ```sh
 pip install -r requirements.txt
 
-###Running the Tests
+## Running the Tests
 To run the tests, use:
 ```sh
 pytest
+
 
