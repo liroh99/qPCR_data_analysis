@@ -1,4 +1,4 @@
-# qPCR Automation Project
+# qPCR Project
 
 ## Overview
 
@@ -37,7 +37,7 @@ To run the program, use the following command in the terminal:
 python qpcr_analysis.py --input <input_excel_file_path> --output <output_excel_file_name>
 
 
-### Step 3: Data Processing
+### Step 3: Running the Program
 
 The program performs the following steps:
 
@@ -75,10 +75,3 @@ The program performs the following steps:
 To install the necessary dependencies, run:
 ```sh
 pip install -r requirements.txt
-
-## Running the Tests
-To run the tests, use:
-```sh
-pytest
-
-
