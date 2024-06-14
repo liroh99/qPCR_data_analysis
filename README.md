@@ -1,12 +1,13 @@
-# qPCR Project
+# qPCR Relative Expression Analysis 
 
 ## Overview
 
-This project automates the analysis of qPCR data, which is often used in research to quantify gene expression levels. By automating the data extraction and analysis process, this project aims to save time and reduce potential errors associated with manual data processing.
+This project automates the analysis of qPCR data, which is often used in research to quantify gene expression levels. By automating the data extraction and analysis process, this project aims to save time and reduce potential errors associated with manual data processing. To note, this program currently only knows how to deal with relative expression (meaning between treatment and control), and does not know how to create a standard curve. 
 
 ## Scientific Background
 
 Quantitative PCR (qPCR) is a laboratory technique used to measure the quantity of a specific RNA or DNA sequence in a sample. It is commonly used to quantify gene expression levels by measuring the cycle threshold (CT) values during PCR amplification.
+For more information about and scientific background you can look at this youtube video: [YouTube video](https://www.youtube.com/watch?v=y8tHiH0BzGY)
 
 ### Key Concepts
 
