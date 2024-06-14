@@ -33,7 +33,7 @@ When you run the program, a graphical user interface (GUI) will prompt you to pr
 ### Step 2: Running the Program
 
 To run the program, use the following command in the terminal:
-```sh
+
 python qpcr_analysis.py --input <input_excel_file_path> --output <output_excel_file_name>
 
 
@@ -73,5 +73,17 @@ The program performs the following steps:
 ## Dependencies
 
 To install the necessary dependencies, run:
-```sh
+```
 pip install -r requirements.txt
+```
+
+
+##Running the Tests
+To run the tests, use:
+```
+pytest
+```
+
+
+
+
