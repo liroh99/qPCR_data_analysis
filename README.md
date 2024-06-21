@@ -32,14 +32,8 @@ When you run the program, a graphical user interface (GUI) will prompt you to pr
    - The name of the treated group.
    - The sample names corresponding to that treated group (comma-separated).
 
+
 ### Step 2: Running the Program
-
-To run the program, use the following command in the terminal:
-
-python qpcr_analysis.py --input <input_excel_file_path> --output <output_excel_file_name>
-
-
-### Step 3: Running the Program
 
 The program performs the following steps:
 
@@ -71,6 +65,15 @@ The program performs the following steps:
   - % KD
 
 - **Graph**: A graph where the NTC is set to 1, and the treated groups are represented by the ∆∆Cq expression values. This graph shows the differential expression of the gene of interest due to the treatment.
+
+
+### Step 3: Running the Program
+
+To run the program, use the following command in the terminal:
+```
+python qpcr_analysis.py --input <input_excel_file_path> --output <output_excel_file_name>
+```
+
 
 ## Dependencies
 
