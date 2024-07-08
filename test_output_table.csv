@@ -1,0 +1,7 @@
+Treatment,Sample,Cq Reference Gene,Cq Target Gene,Target Gene,deltaCq,deltaCq Expression,Mean deltaCq Expression,delta deltaCq Expression,% KD
+Control,Sample1,30,30,GeneA,0,1,1,1,0
+Control,Sample2,40,40,GeneA,0,1,1,1,0
+Group1,Sample1,20,20,GeneA,0,1,1,1,0
+Group1,Sample2,25,25,GeneA,0,1,1,1,0
+Group2,Sample3,35,35,GeneA,0,1,1,1,0
+Group2,Sample4,30,30,GeneA,0,1,1,1,0

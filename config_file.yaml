@@ -1,0 +1,11 @@
+ref_gene: BACTIN
+ntc: RGM
+water: NTC
+replicates: 2
+treated_groups:
+  - name: ko1
+    samples: 1,7
+  - name: ko2
+    samples: RGM D
+  - name: ko3
+    samples: 1D

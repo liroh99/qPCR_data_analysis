@@ -1,0 +1,6 @@
+pandas
+tk
+matplotlib
+openpyxl
+xlrd
+PyYAML
