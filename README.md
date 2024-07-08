@@ -8,6 +8,9 @@ This project automates the analysis of qPCR (quantitative Polymerase Chain React
 
 Quantitative PCR (qPCR) is a laboratory technique used to measure the quantity of a specific RNA or DNA sequence in a sample. It is commonly used to quantify gene expression levels by measuring the cycle threshold (CT) values during PCR amplification.
 
+This is how a standard qPCR curve looks like:
+![alt text](https://www.bio-rad.com/sites/default/files/2022-03/identifying-cq-value-qpcr-high-res.jpg)
+
 For more information about the scientific background, you can watch this YouTube video: [Analyzing Quantitative PCR Data](https://www.youtube.com/watch?v=y8tHiH0BzGY)
 
 ### Key Concepts
@@ -17,6 +20,8 @@ For more information about the scientific background, you can watch this YouTube
 - **Treated Groups**: Samples that have undergone a specific treatment or condition.
 - **Water Template**: A negative control sample with water instead of a template to check for contamination.
 - **Differential Expression Analysis**: A method to compare gene expression levels between different conditions (e.g., treated vs. control).
+
+
 
 ## Project Workflow
 
@@ -109,3 +114,7 @@ pytest
 ## Note
 
 This program is designed for relative expression analysis and does not support standard curve creation. Always verify the results and consult with a qPCR expert if you're unsure about the interpretation of the data.
+
+This project was originally implemented as part of the Python programming course at the Weizmann Institute of Science taught by Gabor Szabo
+
+
