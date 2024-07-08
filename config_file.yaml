@@ -1,5 +1,5 @@
 ref_gene: BACTIN
-ntc: RGM
+ntc: RGM A,RGM B
 water: NTC
 replicates: 2
 treated_groups:

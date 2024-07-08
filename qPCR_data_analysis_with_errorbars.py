@@ -255,7 +255,7 @@ class qPCRApp:
         plt.savefig(plot_path, format='jpeg')
         print(f"Plot saved to {plot_path}")
 
-        if show_plot:
+        if self.show_plot:
             plt.show()
 
     def check_water_template(self, df, water):
