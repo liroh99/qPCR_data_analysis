@@ -1,14 +1,14 @@
-# qPCR Relative Expression Analysis 
+# qPCR Relative Expression Analysis
 
 ## Overview
 
-This project automates the analysis of qPCR data, which is often used in research to quantify gene expression levels. By automating the data extraction and analysis process, this project aims to save time and reduce potential errors associated with manual data processing. To note, this program currently only knows how to deal with relative expression (meaning between treatment and control), and does not know how to create a standard curve. 
+This project automates the analysis of qPCR (quantitative Polymerase Chain Reaction) data, which is often used in research to quantify gene expression levels. By automating the data extraction and analysis process, this project aims to save time and reduce potential errors associated with manual data processing. The program currently handles relative expression analysis (comparing treatment and control) but does not create standard curves.
 
 ## Scientific Background
 
 Quantitative PCR (qPCR) is a laboratory technique used to measure the quantity of a specific RNA or DNA sequence in a sample. It is commonly used to quantify gene expression levels by measuring the cycle threshold (CT) values during PCR amplification.
-For more information about and scientific background you can look at this youtube video: [Analyzing Quantitative PCR Data
-](https://www.youtube.com/watch?v=y8tHiH0BzGY)
+
+For more information about the scientific background, you can watch this YouTube video: [Analyzing Quantitative PCR Data](https://www.youtube.com/watch?v=y8tHiH0BzGY)
 
 ### Key Concepts
 
@@ -20,75 +20,92 @@ For more information about and scientific background you can look at this youtub
 
 ## Project Workflow
 
-### Step 1: User Input via GUI
+### Step 1: User Input
 
-When you run the program, a graphical user interface (GUI) will prompt you to provide the following information:
+The program offers two ways to provide input:
 
-1. **Reference Gene**: The name of the housekeeping gene used for normalization.
-2. **Control Sample Name (NTC)**: The name of the non-treated control sample.
-3. **Water Template Sample Name**: The name of the water template sample.
-4. **Number of Treated Groups**: The number of treated groups.
-5. **Treated Groups Information**: For each treated group, you will be asked to provide:
-   - The name of the treated group.
-   - The sample names corresponding to that treated group (comma-separated).
+1. **Graphical User Interface (GUI)**: When run without a config file, a GUI prompts for the following information:
+   - Reference Gene
+   - Control Sample Names (NTC, comma-separated)
+   - Water Template Sample Name
+   - Number of Treated Groups
+   - Replicates (2 for duplicates, 3 for triplicates)
+   - For each treated group:
+     - Name of the treated group
+     - Sample names for that group (comma-separated)
 
+2. **Configuration File**: Alternatively, you can provide a YAML configuration file with the above information.
 
-### Step 2: Running the Program
+### Step 2: Data Processing
 
 The program performs the following steps:
 
-1. **Load Data**: Reads the qPCR Excel file and focuses on the "Results" sheet.
-2. **Extract Relevant Data**: Extracts the sample name, target name, CT values, and CT SD values from the "Results" sheet and creates a DataFrame.
-3. **Calculate Mean and Standard Deviation**: Calculates the mean and standard deviation of CT values for duplicates/triplicates.
-4. **Check Water Template**: Verifies if the water template is clean (CT > 35). If not, it displays a warning.
-5. **Check CT SD**: Ensures that the CT SD is within the acceptable range (CT SD ≤ 0.5). If any sample exceeds this threshold, it displays a warning.
-6. **Calculate ∆Cq**: Calculates the difference between the CT values of the target gene and the reference gene for each sample.
-7. **Calculate Expression (2^(-∆Cq))**: Computes the expression value for each sample.
-8. **Calculate Mean and Standard Deviation of Expression**: Calculates the mean and standard deviation of the expression values for duplicates/triplicates.
-9. **Calculate ∆∆Cq**: Computes the ∆∆Cq expression for treated vs. control.
-10. **Calculate ∆∆Cq Standard Deviation**: Calculates the standard deviation for ∆∆Cq expression.
-11. **Calculate % KD**: Computes the knockdown percentage.
-12. **Generate Output**: Creates a table similar to the provided example and generates a graph.
+1. Loads data from the qPCR Excel file
+2. Extracts relevant data (sample name, target name, CT values)
+3. Calculates mean CT for each sample and target combination
+4. Performs sanity checks (e.g., water template contamination)
+5. Calculates ∆Cq, ∆Cq Expression, ∆∆Cq Expression, and % KD
+6. Generates output table and plot
 
-### Output
+### Step 3: Output
 
-- **Table**: An Excel file containing a table with the following columns:
-  - Treatment
-  - Cq reference gene
-  - Cq target
-  - ∆Cq
-  - ∆Cq expression
-  - Mean ∆Cq expression
-  - ∆Cq expression stdev
-  - ∆∆Cq expression
-  - ∆∆Cq expression stdev
-  - % KD
+The program generates two main outputs:
 
-- **Graph**: A graph where the NTC is set to 1, and the treated groups are represented by the ∆∆Cq expression values. This graph shows the differential expression of the gene of interest due to the treatment.
+1. **CSV Table**: A CSV file containing the following columns:
+   - Treatment
+   - Sample
+   - Target Gene
+   - Cq Reference Gene
+   - Cq Target
+   - ∆Cq
+   - ∆Cq Expression
+   - Mean ∆Cq Expression
+   - ∆Cq Expression stdev
+   - ∆∆Cq Expression
+   - ∆∆Cq Expression stdev
+   - % KD
 
+2. **Plot**: A bar plot showing the relative gene expression across treatments. The plot is saved as a JPEG file and can optionally be displayed on screen.
 
-### Step 3: Running the Program
+## Usage
 
 To run the program, use the following command in the terminal:
+
 ```
-python qpcr_analysis.py --input <input_excel_file_path> --output <output_excel_file_name>
+python qpcr_analysis.py --input_path <input_excel_file_path> --output_path <output_file_path> [options]
 ```
 
+### Command-line Arguments
+
+- `--input_path`, `-i`: Path to the qPCR raw data Excel file (required)
+- `--output_path`, `-o`: Path for the output files (required)
+- `--skiplines`: Number of lines to skip in the Excel file to reach column names (default: 47)
+- `--config_path`, `-config`: Path to a YAML configuration file (optional, overrides GUI)
+- `--show_plot`, `-show`: Flag to display the plot on screen (optional)
 
 ## Dependencies
 
 To install the necessary dependencies, run:
+
 ```
 pip install -r requirements.txt
 ```
 
+Required packages include:
+- pandas
+- tkinter
+- matplotlib
+- numpy
+- PyYAML
 
 ## Running the Tests
+
 To run the tests, use:
+
 ```
 pytest
 ```
 
+## Note
 
-
-
+This program is designed for relative expression analysis and does not support standard curve creation. Always verify the results and consult with a qPCR expert if you're unsure about the interpretation of the data.
