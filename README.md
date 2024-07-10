@@ -80,7 +80,7 @@ The program generates two main outputs:
 To run the program, use the following command in the terminal:
 
 ```
-python qpcr_analysis.py --input_path <input_excel_file_path> --output_path <output_file_path> [options]
+python qPCR_data_analysis_with_errorbars --input_path <input_excel_file_path> --output_path <output_file_path> [options]
 ```
 
 ### Command-line Arguments
