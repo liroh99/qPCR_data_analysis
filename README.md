@@ -10,6 +10,7 @@ Quantitative PCR (qPCR) is a laboratory technique used to measure the quantity o
 
 This is how a standard qPCR curve looks like:
 ![alt text](https://www.bio-rad.com/sites/default/files/2022-03/identifying-cq-value-qpcr-high-res.jpg)
+
 This qPCR graph illustrates the amplification of a DNA sample over a series of PCR cycles. The X-axis represents the number of cycles, while the Y-axis shows fluorescence intensity, which correlates with the amount of DNA produced. The baseline phase indicates the initial cycles with low fluorescence. The threshold line is set above the baseline to distinguish significant amplification. The Cq value (quantification cycle) is the cycle number where the sample's fluorescence (blue curve) surpasses the threshold, reflecting the point of detectable DNA amplification. The "No template" control shows no amplification, indicating no contamination in the reaction.
 
 
