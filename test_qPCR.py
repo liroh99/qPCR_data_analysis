@@ -6,7 +6,7 @@ import os
 # Test function
 def test_qpcr_analysis():
     # Setup
-    excel_path = "C:\work\qPCR automation\qPCR_data_analysis\qPCR_results.xls"  
+    excel_path = "qPCR_results.xls"  
     output_path = "test_output"
     skiplines = 47
     config_path = "config_file.yaml"
